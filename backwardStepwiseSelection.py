@@ -1,5 +1,5 @@
 """
-Created by Ecem Balikci on 12/20/20. Contact: balikciecem@gmail.com
+Created by Ecem Balikci on 12/20/20. Contact: balikci8ecem@gmail.com
 """
 import numpy as np
 import csv
