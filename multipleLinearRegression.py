@@ -1,4 +1,4 @@
-" Created by Ecem Balıkçı on 11/21/2020 at 1:56 PM (Contact: balikciecem@gmail.com) "
+" Created by Ecem Balıkçı on 11/21/2020 at 1:56 PM (Contact: balikci8ecem@gmail.com) "
 
 import numpy as np
 import csv
@@ -22,22 +22,22 @@ with open("team_big.csv") as f:
             pow_list = np.append(pow_list, float(a[7]))
             one_list = np.append(one_list, 1)
 
-X = np.column_stack((one_list, age_list, exp_list, pow_list))
-xt = np.transpose(X)
+X = np.column_stack((one_list, age_list, exp_list, pow_list)) # we merge the arrays into a matrice.
+xt = np.transpose(X) # the formula is in description
 xtx = np.dot(xt, X)
 xty = np.dot(xt, salary_list)
 xtx_inv = np.linalg.inv(xtx)
 beta = np.dot(xtx_inv, xty)
 
-# working alternative:
-# coefficents = np.linalg.inv(x.T.dot(x)).dot(x.T).dot(y)
+# working alternative to calculate coefficients:
+# regression_coefficients = np.linalg.inv(x.T.dot(x)).dot(x.T).dot(y)
 
-y_est = X.dot(beta)  # 𝒚̂=𝑿𝜷̂
-u = abs(salary_list-y_est)  # |𝒖̂|=|𝒚−𝒚̂|
+y_est = X.dot(beta)  # 𝒚̂=𝑿𝜷̂ predictions for salary
+u = abs(salary_list-y_est)  # |𝒖̂|=|𝒚−𝒚̂| error margins for predictions
 
 
-def simlin_plot(x, y):
-    plt.scatter(x, y, c="c")
+def simlin_plot(x, y): # to plot a graph shows the comparison
+    plt.scatter(x, y, c="c") # scatter() is to plot "o" shaped graph,c= selects the color
     plt.xlabel("Estimated Salary Values(y_est)")
     plt.ylabel("Errors(u)")
     plt.title("Residual Error Plot")
