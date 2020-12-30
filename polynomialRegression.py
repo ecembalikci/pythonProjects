@@ -63,13 +63,13 @@ matrix = np.column_stack((x, y, poly_arr[0], poly_arr[1], poly_arr[2], poly_arr[
 matrix = matrix[sorted_loc]  # sort matrix according to age's sorted locations
 plt.scatter(x, y, c="k")
 plt.plot(matrix[:, 0], matrix[:, 2], c="m")  # linear
-plt.plot(matrix[:, 0], matrix[:, 3], c="r")  # 2nd degree
-plt.plot(matrix[:, 0], matrix[:, 4], c="r")  # 3rd degree
+plt.plot(matrix[:, 0], matrix[:, 3], c="y")  # 2nd degree
+plt.plot(matrix[:, 0], matrix[:, 4], c="g")  # 3rd degree
 plt.plot(matrix[:, 0], matrix[:, 5], c="r")  # 4th degree
 plt.plot(matrix[:, 0], matrix[:, 6], c="c")  # 5th degree
 plt.plot(matrix[:, 0], matrix[:, 7], c="b")  # 6th degree
 plt.title("Polynomial Regression")
 plt.xlabel("age of a bluegill fish")
 plt.ylabel("length of a bluegill fish")
-plt.legend(["linear", "4th degree", "5th degree", "6th degree"])
+plt.legend(["linear", "2nd degree", "3rd degree", "4th degree", "5th degree", "6th degree"])
 plt.show()
