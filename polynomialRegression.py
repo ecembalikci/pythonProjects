@@ -7,7 +7,7 @@ age_list = np.array([])
 one_list = np.array([])
 length_list = np.array([])
 
-with open("Bluegill_dataset.csv") as f:
+with open("Bluegill_dataset.csv") as f:  # extract and read the data from csv file
     bluegill_dataset = list(csv.reader(f))
     for a in bluegill_dataset:
         if a != bluegill_dataset[0]:
@@ -15,8 +15,8 @@ with open("Bluegill_dataset.csv") as f:
             length_list = np.append(length_list, int(a[1]))
             one_list = np.append(one_list, 1)
 
-x = age_list
-y = length_list
+x = age_list # our input value x is age data
+y = length_list # our output value y is length data
 
 
 def polynomial_regression(x, y, d):
