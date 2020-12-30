@@ -53,7 +53,7 @@ for i in range(6):  # r^2 calculations for every degree
     if i == 0:
         print("The r^2 score for linear regression: ", format(call_r2, '.2f'))
     else:
-        print("The r^2 score for", i, ". degree polynomial regression: ", format(call_r2, '.4f'))
+        print("The r^2 score for", i+1, ". degree polynomial regression: ", format(call_r2, '.4f'))
     # format() allows us to set decimal numbers in our results. round() can be used too, but it ignores 0.
     # for ex: if your result is 0.8340234 format(result, '.4f') will make it 0.8340, round(result,4) will make it 0.834
 
