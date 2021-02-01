@@ -1,4 +1,4 @@
-" Created by Ecem Balıkçı on 1/11/2021 at 7:16 AM (Contact: balikciecem@gmail.com) "
+" Created by Ecem Balıkçı on 1/11/2021 at 7:16 AM (Contact: balikci8ecem@gmail.com) "
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
