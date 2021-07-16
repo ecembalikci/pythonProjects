@@ -6,20 +6,19 @@ import tcpbankingServer
 class MyClient:
     balance_ = tcpbankingServer.MyServer().balance
 
-    def deposit(self):
 
-        d_balance_msg = server.recv(1024).decode()
-        print(f"Server says:{d_balance_msg}")
-        amount = str(input("The amount you want to deposit: ").encode())
-        server.send(bytes(amount, "utf-8"))
+    def deposit(self):
+        balance_msg = server.recv(1024)
+        balance_msg = balance_msg.decode("utf-8")
+        print(f"Server says:{balance_msg}")
+        amount = int(input("The amount you want to deposit: "))
+        server.send(bytes(amount))
         d_msg = server.recv(1024)
         print(f"Server says:{d_msg}")
 
     def withdraw(self):
-
-        w_balance_msg = server.recv(1024).decode()
-        print(f"Server says:{w_balance_msg}")
-        server.send(input("The amount you want to withdraw: ").encode())
+        amount = str(input("The amount you want to withdraw: "))
+        server.send(bytes(amount, "utf-8"))
         w_msg = server.recv(1024)
         print(f"Server says:{w_msg}")
 
@@ -30,7 +29,7 @@ class MyClient:
         print("Press 2 to WITHDRAW MONEY")
         print("Press 0 to QUIT")
         print("--------------------------------------------------------")
-        choice = ''
+        choice = 1000
 
         while choice != '0':
 
@@ -38,12 +37,8 @@ class MyClient:
             server.send(bytes(choice, "utf-8"))
             if choice == '1':
                 self.deposit()
-                atm_msg = server.recv(1024).decode()
-                print(f"Server says:{atm_msg}")
             elif choice == '2':
                 self.withdraw()
-                atm_msg = server.recv(1024).decode()
-                print(f"Server says:{atm_msg}")
             elif choice == '0':
                 print('--------------------QUIT---------------------------')
             else:
